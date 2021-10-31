@@ -4,7 +4,7 @@ import 'package:election_exit_poll_620710650/models/api_result.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  static const BASE_URL = 'https://cpsu-test-api.herokuapp.com/';
+  static const BASE_URL = 'https://cpsu-test-api.herokuapp.com';
 
   Future<dynamic> submit(
       String endPoint,

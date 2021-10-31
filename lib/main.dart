@@ -1,4 +1,5 @@
 import 'package:election_exit_poll_620710650/pages/home_page.dart';
+import 'package:election_exit_poll_620710650/pages/result_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
         HomePage.routeName: (context) => const HomePage(),
+        ResultPage.routeName: (context) => const ResultPage()
       },
       initialRoute: HomePage.routeName,
     );

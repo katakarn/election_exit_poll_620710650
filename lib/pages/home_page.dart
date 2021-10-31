@@ -1,5 +1,6 @@
 import 'package:election_exit_poll_620710650/helpers/platform_aware_asset_image.dart';
 import 'package:election_exit_poll_620710650/models/candidate.dart';
+import 'package:election_exit_poll_620710650/pages/result_page.dart';
 import 'package:election_exit_poll_620710650/services/api.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
   Future<List<Candidate>> _fetch()async{
     List list = await Api().fetch('exit_poll');
     var cd = list.map((e) => Candidate.fromJson(e)).toList();
+    print(cd.toString());
     return cd;
   }
 
@@ -86,7 +88,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
 
-
               _buildCandidateCard(context),
 
               Row(
@@ -94,7 +95,12 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.purple),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          ResultPage.routeName
+                        );
+                      },
                       child: Text(
                         'ดูผล',
                       ),
@@ -108,6 +114,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   Widget _buildCandidateCard(BuildContext context) {
     return FutureBuilder<List<Candidate>>(
       future: _candidate,

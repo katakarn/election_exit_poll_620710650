@@ -8,7 +8,7 @@ class Candidate {
   factory Candidate.fromJson(Map<String, dynamic> json) {
     return Candidate(
       number: json['number'],
-      displayName: json['displayname'],
+      displayName: json['displayName'],
     );
   }
 }
